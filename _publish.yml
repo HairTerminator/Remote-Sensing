@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 8246fab9-1f18-4e03-a861-5da4e3a948a9
+      url: 'https://quartopub.com/sites/casanima/mybook'
