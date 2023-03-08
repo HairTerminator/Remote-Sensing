@@ -2,8 +2,8 @@ project:
   type: book
 
 book:
-  title: "mybook"
-  author: "Jane Doe"
+  title: "Learning Diary"
+  author: "Yinhao Ren"
   date: "1/19/2023"
   chapters:
     - index.qmd

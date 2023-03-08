@@ -1,0 +1,78 @@
+---
+title: "WK2"
+subtitle: "Sentinel-2"
+author: "Yinhao Ren"
+institute: "RStudio, PBC"
+date: "2023/3/1"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+# Sentinel-2 Satellite
+
+--
+
+- Sentinel 2 is a high-resolution multispectral imaging satellite, carrying a multispectral imager (MSI) for land monitoring, which can provide images of vegetation, soil and water coverage, inland waterways and coastal areas, and can also be used for emergency rescue service. It has two satellites 2A and 2B.
+
+--
+
+- The Sentinel-2 satellite carries a multispectral imager (MSI) with a height of 786km, which can cover 13 spectral bands and a width of 290km. The ground resolutions are 10m, 20m and 60m respectively, and the revisit period of one satellite is 10 days, and the revisit period of two satellites is 5 days. From visible light and near-infrared to short-wave infrared, it is with different spatial resolutions. Among optical data, Sentinel-2 data is the only one that contains three bands in the red edge range, which is very effective for monitoring vegetation health information.
+---
+
+background-image: url(https://img-blog.csdnimg.cn/20201231104613452.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNzE4MzU3,size_16,color_FFFFFF,t_0)
+
+.footnote[ *Sentinel-2 satellite simulation image]
+
+---
+class:  center, middle
+# Application
+
+---
+
+## Classification on crops basedd on NDVI
+
+In view of the low resolution of single-phase remote sensing data and the misclassification of ground features caused by "same object with different spectrum" and "different object with same spectrum", Xiangqian Qi(2022) used Sentinel-2 satellite images to calculate multi-temporal NDVI vegetation index and established the decision tree discriminant rule used to finely classify crops and extract the area, and predict the planting trend in the coming year. By monitoring the changes in the NDVI vegetation index of the sample points from March to October, the classification threshold was determined and the decision tree classification method was constructed to calculate 8 images. The NDVI vegetation index was used to classify 9 types of land forms combining with the decision tree classification method. The experimental results showed that the kappa coefficients of the two years were 0.8858 and 0.9100, the overall classification accuracies are 90.76% and 92.54% respectively, and the remote sensing classifications of the nine land form types are generally highly consistent in accuracy.
+
+---
+##Coseismic Landslide Interpretation Based on Sentinel-2 Data
+
+Lingling Du(2022) used the Sentinel-2 L1C level data and chosed the support vector machine (SVM) classification method to initially identify the coseismic landslides in the "8.8 Jiuzhaigou Earthquake" in Zhangzha Township, Jiuzhaigou. Based on this she used DEM data to extract terrain slope features to accurately identify landslide areas and analyzed the spatial distribution characteristics of landslides. She also combined with Google Earth historical images to verify the interpretation results to ensure the accuracy of the results.
+
+![](https://th.bing.com/th/id/OIP.8Og4-at1mgxroHaTjT1zhQHaFj?w=220&h=180&c=7&r=0&o=5&pid=1.7)
+![](https://th.bing.com/th/id/OIP.Zy618SdmVWYOcB0GyxDj2gAAAA?w=248&h=180&c=7&r=0&o=5&pid=1.7)
+![](https://th.bing.com/th/id/OIP.VmA83djLhRdyKnOAf3-OUwAAAA?w=256&h=185&c=7&r=0&o=5&pid=1.7)
+---
+class:  center, middle
+#Reflection
+
+---
+## Personal Reflection
+
+--
+
+Regarding the use of Sentinel-2 satellite image data for remote sensing data, I think there are two differences between it and the currently popular Landsat8 satellite. 
+
+--
+
+- First, the Sentinel images on the ESA official website generally only provide data within one and a half years of the current time, because Sentinel-2 has a large amount of data and limited storage services. 
+
+--
+
+- Second, it is relatively convenient to apply for Landsat, which is quite typical and versatile, with suitable band and resolution, and the quality is still reliable for many years beyond the design life.
+
+--
+
+In fact, I think the important issue is how to choose the appropriate classification prediction method to process images, especially when the resolution is determined. In addition, combining appropriate bands to identify target objects is also an important means of utilizing remote sensing images.
+
+---
+
+#Reference
+
+1.Xiangqian Qi ,Dehao Sun, Lianxing Jia(2022). Crop classification and monitoring of sentinel 2 multi temporal vegetation index[J]. Surveying Engineering,2022,31(6):47-53. DOI:10.19349/j.cnki.issn1006-7949.2022.06.008.
+
+2.Lingling Du. Research on coseismic landslide interpretation based on Sentinel-2 data[J]. Technology Innovation and Application,2022,12(16):53-55,60. DOI:10.19981/j.CN23-1581/G3.2022.16.011.
+

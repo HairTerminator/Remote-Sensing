@@ -2,57 +2,57 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "mybook",
+    "title": "Learning Diary",
     "section": "",
-    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+    "text": "This is the learning diary for remote sensing module. Written in Markdown and editable codes."
   },
   {
     "objectID": "intro.html",
     "href": "intro.html",
     "title": "1  Introduction",
     "section": "",
-    "text": "See Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.yeahhhhhhhhh"
+    "text": "Hello! My name is Yinhao Ren and I am a USS student in CASA. Even though I am familiar with remote sensing somewhat, I haven’t done something really fascinating and attractive about this topic. So here I am, looking forword to learn something fun and hope I can pass this module!"
   },
   {
     "objectID": "wk1.html",
     "href": "wk1.html",
-    "title": "3  An Introduction to Remote Sensing",
+    "title": "2  An Introduction to Remote Sensing",
     "section": "",
-    "text": "blabla"
+    "text": "This week the introductory knowledge of remote sensing is mainly introduced in four main aspects. First, the source and application of remote sensing, processing and analyzing data received from satellites, drones, mobile phones, etc., can be applied to decision-making analysis in cities, forests, oceans, etc.; second, the type of sensor, There are two types of sensors, active and passive. The important difference between these two is whether they can send energy independently and get feedback; third, the energy interaction on the earth’s surface, such as atmospheric scattering, the existence of electromagnetic waves, etc.; fourth, introduceing four important resolutions, spatial resolution, spectral resolution, time resolution and radiation resolution. For the experimental part of this week, the course learned how to download the Sentinel-2 satellite image and perform basic processing and display functions. After downloading the target satellite image from the open website, we can first open the true color image (RGB three-band) in QGIS. For Sentinel-2 satellite image band description is as followsWhen we use the Snap software to open an image, we first perform a resampling operation, and then we can use the 432 three bands to perform band fusion to obtain a true color image. A case of a true color image is as followsWe can also use Snap to perform image subsetting, scatter plotting comparison and other activities."
+  },
+  {
+    "objectID": "wk1.html#applications",
+    "href": "wk1.html#applications",
+    "title": "2  An Introduction to Remote Sensing",
+    "section": "2.2 Applications",
+    "text": "2.2 Applications\nThere are many applications of remote sensing, which are involved in different fields. Peng Chen (2023) used multi-source remote sensing data to effectively detect river water quality, with an accuracy of nearly 90%; Wujian Ye (2022) used remote sensing data combined with deep learning methods to classify and identify pests and diseases in forests, and the recall rate up to 50%. To put it simply, its research is to replace the hysteresis and low resolution of satellite remote sensing with the effectiveness and high resolution of drone remote sensing, it performed data enhancement, labeling, etc. on the images of drones, and finally put them into neural networks abd trained in the network model. Ultimately, they got the corresponding results; Zhou Weimo(2022) used the satellite remote sensing data to predict the yield of wheat at the county level in China with the best R square of 0.79. Most of the methods in these articles are based on satellite or drone remote sensing data as the data source, combined with some typical machine learning algorithms such as random forest, support vector machine, etc. to formulate a model, and finally get the corresponding precision results. I think these methods can effectively overcome difficulties, such as field research, funding, coverage area, etc., and remote sensing images can be used as the basic data source when dealing with large-scale single-type targets."
+  },
+  {
+    "objectID": "wk1.html#reflection",
+    "href": "wk1.html#reflection",
+    "title": "2  An Introduction to Remote Sensing",
+    "section": "2.3 Reflection",
+    "text": "2.3 Reflection\nAfter reading some relevant literature and understanding research cases, I think that the application of remote sensing in today’s society must be deeply integrated with forecasting models to a large extent. An obvious feature of the application of remote sensing is statistical expression based on spatial information, which means models are inseparable. Prediction is an unavoidable topic in industrial applications. Therefore, it is necessary to mine remote sensing prediction models and express the spatiotemporal characteristics of the model through spatial data visualization. In the case studies metioned above, the thematic maps and related reports are the most direct products of remote sensing. However, I think the results can be digitized and informatized, like the results can be made into web pages and apps and processed through some shortcuts, such as QR code or link."
   },
   {
     "objectID": "wk2.html",
     "href": "wk2.html",
-    "title": "4  Portfolio tools: Xaringan and Quarto",
+    "title": "3  Portfolio tools: Xaringan and Quarto",
     "section": "",
     "text": "bl"
   },
   {
     "objectID": "wk2.html#section",
     "href": "wk2.html#section",
-    "title": "4  Portfolio tools: Xaringan and Quarto",
-    "section": "4.2 ",
-    "text": "4.2"
+    "title": "3  Portfolio tools: Xaringan and Quarto",
+    "section": "3.2 ",
+    "text": "3.2"
   },
   {
     "objectID": "wk3.html",
     "href": "wk3.html",
-    "title": "5  Remote sensing data",
+    "title": "4  Remote sensing data",
     "section": "",
     "text": "bla ##"
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   }
 ]

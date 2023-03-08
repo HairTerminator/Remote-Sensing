@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>mybook - 3&nbsp; An Introduction to Remote Sensing</title>
+<title>Learning Diary - 2&nbsp; An Introduction to Remote Sensing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./wk2.html" rel="next">
-<link href="./summary.html" rel="prev">
+<link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An Introduction to Remote Sensing</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An Introduction to Remote Sensing</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">mybook</a> 
+      <a href="./">Learning Diary</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -105,22 +105,17 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./wk1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An Introduction to Remote Sensing</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./wk1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An Introduction to Remote Sensing</span></a>
+  <a href="./wk2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Portfolio tools: Xaringan and Quarto</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./wk2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Portfolio tools: Xaringan and Quarto</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./wk3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Remote sensing data</span></a>
+  <a href="./wk3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Remote sensing data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -133,14 +128,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="toc-section-number">2.1</span>  Summary</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="toc-section-number">2.2</span>  Applications</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="toc-section-number">2.3</span>  Reflection</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An Introduction to Remote Sensing</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An Introduction to Remote Sensing</span></h1>
 </div>
 
 
@@ -154,10 +157,20 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>##Summary</p>
-<p>blabla</p>
+<section id="summary" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.1</span> Summary</h2>
+<p>This week the introductory knowledge of remote sensing is mainly introduced in four main aspects. First, the source and application of remote sensing, processing and analyzing data received from satellites, drones, mobile phones, etc., can be applied to decision-making analysis in cities, forests, oceans, etc.; second, the type of sensor, There are two types of sensors, active and passive. The important difference between these two is whether they can send energy independently and get feedback; third, the energy interaction on the earth’s surface, such as atmospheric scattering, the existence of electromagnetic waves, etc.; fourth, introduceing four important resolutions, spatial resolution, spectral resolution, time resolution and radiation resolution. For the experimental part of this week, the course learned how to download the Sentinel-2 satellite image and perform basic processing and display functions. After downloading the target satellite image from the open website, we can first open the true color image (RGB three-band) in QGIS. For Sentinel-2 satellite image band description is as follows<img src="wk1_1.jpg" class="img-fluid" alt="band information">When we use the Snap software to open an image, we first perform a resampling operation, and then we can use the 432 three bands to perform band fusion to obtain a true color image. A case of a true color image is as follows<img src="wk1_2.jpg" class="img-fluid" alt="2">We can also use Snap to perform image subsetting, scatter plotting comparison and other activities.</p>
+</section>
+<section id="applications" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="applications"><span class="header-section-number">2.2</span> Applications</h2>
+<p>There are many applications of remote sensing, which are involved in different fields. Peng Chen (2023) used multi-source remote sensing data to effectively detect river water quality, with an accuracy of nearly 90%; Wujian Ye (2022) used remote sensing data combined with deep learning methods to classify and identify pests and diseases in forests, and the recall rate up to 50%. To put it simply, its research is to replace the hysteresis and low resolution of satellite remote sensing with the effectiveness and high resolution of drone remote sensing, it performed data enhancement, labeling, etc. on the images of drones, and finally put them into neural networks abd trained in the network model. Ultimately, they got the corresponding results; Zhou Weimo(2022) used the satellite remote sensing data to predict the yield of wheat at the county level in China with the best R square of 0.79. Most of the methods in these articles are based on satellite or drone remote sensing data as the data source, combined with some typical machine learning algorithms such as random forest, support vector machine, etc. to formulate a model, and finally get the corresponding precision results. I think these methods can effectively overcome difficulties, such as field research, funding, coverage area, etc., and remote sensing images can be used as the basic data source when dealing with large-scale single-type targets.</p>
+</section>
+<section id="reflection" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="reflection"><span class="header-section-number">2.3</span> Reflection</h2>
+<p>After reading some relevant literature and understanding research cases, I think that the application of remote sensing in today’s society must be deeply integrated with forecasting models to a large extent. An obvious feature of the application of remote sensing is statistical expression based on spatial information, which means models are inseparable. Prediction is an unavoidable topic in industrial applications. Therefore, it is necessary to mine remote sensing prediction models and express the spatiotemporal characteristics of the model through spatial data visualization. In the case studies metioned above, the thematic maps and related reports are the most direct products of remote sensing. However, I think the results can be digitized and informatized, like the results can be made into web pages and apps and processed through some shortcuts, such as QR code or link.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -260,13 +273,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./summary.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span>
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./wk2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Portfolio tools: Xaringan and Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Portfolio tools: Xaringan and Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

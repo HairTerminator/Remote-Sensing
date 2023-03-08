@@ -1,5 +1,5 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+This is the learning diary for remote sensing module. Written in Markdown and editable codes.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+

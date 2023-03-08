@@ -1,5 +1,4 @@
 # Introduction
 
-This is a book created from markdown and executable code.
-
-See @knuth84 for additional discussion of literate programming.
+Hello! My name is Yinhao Ren and I am a USS student in CASA. Even though I am familiar with remote sensing somewhat, I haven't done something really fascinating and attractive about this topic. So here I am, looking forword to learn something fun and hope I can pass this module!
+![1](pp.jpg)
