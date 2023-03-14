@@ -14,8 +14,6 @@ jupyter:
 
 # Portfolio tools: Xaringan and Quarto
 
-## Summary
+Xaringan Link
 
-bl
-
-##
+<https://hairterminator.github.io/>

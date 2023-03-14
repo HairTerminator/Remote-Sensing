@@ -11,7 +11,8 @@ book:
     - wk1.qmd
     - wk2.qmd
     - wk3.qmd
-    - references.qmd
+    - wk4.qmd
+    - wk5.qmd
 
 bibliography: references.bib
 
