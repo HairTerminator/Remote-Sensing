@@ -13,3 +13,82 @@ jupyter:
 ---
 
 # An introduction to Google Earth Engine
+
+## Summary
+
+This week basically GEE is introduced and here are what we need to know about GEE:
+
+- What is GEE?
+
+The full spell of GEE is Google Earth Engine, from my perspective, it's an online geogrophic platform which involves various satellite image datasets, enabling people to do some real-time analysis based on Javascript coding language.
+
+- Important Features of GEE 
+1. Massive datasets-including different kinds of data sources
+2. It permits geospatial analysis at scale-meanning large scale analysis can be done through it
+3. Respond quickly-it uses its own online server rather than local server
+4. Code based platform-all we need to do for the analysis is coding on the scipt box
+5. Javascript Coding Language
+6. Scale (resolution) is set by the output not input
+7. Automatically convert data into the Mercator projection (EPSG: 3857) when displayed
+
+Now let's go through some codes and see what's happening, but before that, it is worthwhile having a look at the basic work page of GEE:
+
+![](wk51.png)
+
+- Points in GEE
+
+We can use the following code to pin a point in the map:
+```
+var point = ee.Geometry.Point([77.216721, 28.644800]);
+
+```
+Then rename this point with "Dheli" to make it more comprehensive
+
+```
+Map.centerObject(Dheli, 10);
+
+```
+Look how it like in GEE:
+
+![](wk52.jpg)
+
+A lot of cool stuffs can be done in GEE, like adding shp file into assets,mosaicing and clipping, etc. But I wouldn't cover too much about them in this learning diary. Actually what relly impresses me is NDVI can be done in GEE just by using a few rows of codes:
+
+```
+var NDVI_1 = clip.select('SR_B5').subtract(clip.select('SR_B4')).divide(clip.select('SR_B5').add(clip.select('SR_B4')));
+
+Map.addLayer(NDVI_1, { min: -1, max: 1, palette: ['blue', 'white', 'green']}, 'NDVI1');
+```
+
+I can get something like this:
+
+![](wk53.jpg)
+
+Which is really awesome, since index value can be seen at the top right console box when I click the map and get a point.
+
+## Application
+
+Research topics in GEE are various, including land use change, agriculture, ecology and disaster detecting, etc. Here I choose two typical analysis to introduce.First one is crop yield prediction. Lobell(2015) estimated the yield of corn and soybean in middle west of US on GEE platform, he used lots of remote sensing images、weather data and types of crop image data, and the estimated results is consistent with the data that reported by farms. Sencond, Johansen(2015) uses GEE platform to adopot different algorithms to analyze images from Lansat 5TM and Landsat 7TM, and extracted the vegetation data of Queensland, with which he compared the data that states government released, finding that the accuracy is lower than that released by goverment, nevertheless GEE provives an automatic and rapid dectect the destructino of vegetation. Both analysis above utilize and introduce the use of GEE, which is considered as a quick and precise way for the researchers to process data, it is true indeed, when engaging with GEE platform, a lot of complitcated procedures and requirments are no longer needed, which means that we can have more time spending on the analysis itself.
+
+
+## Reflection
+
+This section I am gonna talk about the pros and cons about GEE from my perspective.
+
+- Pros
+
+1. In terms of data types, compared with other cloud platforms, GEE supports more types of geospatial data and provides free services to all users. It is currently the most popular cloud computing platform in earth system science and is widely used to deal with data in multiple fields related to environmental changes, moreover, GEE internally provides background computing and storage capabilities inherited from Google. This enables users to select the required data from millions of images according to various spatial and temporal specifications .In terms of data analysis, GEE has a more comprehensive functional scope, and it also has the ability to analyze geospatial big data.
+
+2. In terms of algorithms, GEE can be used to analyze the advanced algorithms and interactive programming environment of geographic big data. The machine learning algorithm in GEE allows convenient data processing and information extraction, and supports various image processing algorithms. In terms of API, although GEE’s API only include JavaScript and Python, it is enough to meet the needs of most users. GEE also holds long-term sequences of Earth observation records, which play a vital role in environmental monitoring and analysis.
+
+- Cons
+
+GEE can only display global geospatial data in two dimensions, and lacks more advanced visualization capabilities, like 3D map. Also, GEE is a commercial product, and the security of personal, institutional, and national data remains an issue. Although GEE provides near real-time data, it is limited by its computing resources and supporting algorithms.
+
+## Reference
+
+Hongzhen Tian,Na Wei,Huan Li. Research progress at home and abroad based on Google Earth Engine[J]. Journal of Nanyang Normal University,2022,21(6):41-51. DOI:10.3969/j.issn.1671-6132.2022.06.008.
+
+JOHANSEN K, PHINN S, TAYLOR M, et al. Mapping woody vegetation clearing in Queensland, Australia from Landsatimagery using the Google Earth Engine[ J] . Remote Sensing Applications: Society and Environment,2015,1:36-49.
+
+LOBELL D B, THAU D, SEIFERT C. A scalable satellite-based crop yield mapper[ J] . Remote Sensing of Environment,2015,164:324-333.

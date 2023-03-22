@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./wk6.html" rel="next">
 <link href="./wk4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -127,12 +128,36 @@ ul.task-list li input[type="checkbox"] {
   <a href="./wk5.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">An introduction to Google Earth Engine</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./wk6.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classification I</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./wk7.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Classification II</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./wk8.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Temperatrue</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="toc-section-number">5.1</span>  Summary</a></li>
+  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application"><span class="toc-section-number">5.2</span>  Application</a></li>
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection"><span class="toc-section-number">5.3</span>  Reflection</a></li>
+  <li><a href="#reference" id="toc-reference" class="nav-link" data-scroll-target="#reference"><span class="toc-section-number">5.4</span>  Reference</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -153,8 +178,73 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="summary" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.1</span> Summary</h2>
+<p>This week basically GEE is introduced and here are what we need to know about GEE:</p>
+<ul>
+<li>What is GEE?</li>
+</ul>
+<p>The full spell of GEE is Google Earth Engine, from my perspective, it’s an online geogrophic platform which involves various satellite image datasets, enabling people to do some real-time analysis based on Javascript coding language.</p>
+<ul>
+<li>Important Features of GEE</li>
+</ul>
+<ol type="1">
+<li>Massive datasets-including different kinds of data sources</li>
+<li>It permits geospatial analysis at scale-meanning large scale analysis can be done through it</li>
+<li>Respond quickly-it uses its own online server rather than local server</li>
+<li>Code based platform-all we need to do for the analysis is coding on the scipt box</li>
+<li>Javascript Coding Language</li>
+<li>Scale (resolution) is set by the output not input</li>
+<li>Automatically convert data into the Mercator projection (EPSG: 3857) when displayed</li>
+</ol>
+<p>Now let’s go through some codes and see what’s happening, but before that, it is worthwhile having a look at the basic work page of GEE:</p>
+<p><img src="wk51.png" class="img-fluid"></p>
+<ul>
+<li>Points in GEE</li>
+</ul>
+<p>We can use the following code to pin a point in the map:</p>
+<pre><code>var point = ee.Geometry.Point([77.216721, 28.644800]);
+</code></pre>
+<p>Then rename this point with “Dheli” to make it more comprehensive</p>
+<pre><code>Map.centerObject(Dheli, 10);
+</code></pre>
+<p>Look how it like in GEE:</p>
+<p><img src="wk52.jpg" class="img-fluid"></p>
+<p>A lot of cool stuffs can be done in GEE, like adding shp file into assets,mosaicing and clipping, etc. But I wouldn’t cover too much about them in this learning diary. Actually what relly impresses me is NDVI can be done in GEE just by using a few rows of codes:</p>
+<pre><code>var NDVI_1 = clip.select('SR_B5').subtract(clip.select('SR_B4')).divide(clip.select('SR_B5').add(clip.select('SR_B4')));
+
+Map.addLayer(NDVI_1, { min: -1, max: 1, palette: ['blue', 'white', 'green']}, 'NDVI1');</code></pre>
+<p>I can get something like this:</p>
+<p><img src="wk53.jpg" class="img-fluid"></p>
+<p>Which is really awesome, since index value can be seen at the top right console box when I click the map and get a point.</p>
+</section>
+<section id="application" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="application"><span class="header-section-number">5.2</span> Application</h2>
+<p>Research topics in GEE are various, including land use change, agriculture, ecology and disaster detecting, etc. Here I choose two typical analysis to introduce.First one is crop yield prediction. Lobell(2015) estimated the yield of corn and soybean in middle west of US on GEE platform, he used lots of remote sensing images、weather data and types of crop image data, and the estimated results is consistent with the data that reported by farms. Sencond, Johansen(2015) uses GEE platform to adopot different algorithms to analyze images from Lansat 5TM and Landsat 7TM, and extracted the vegetation data of Queensland, with which he compared the data that states government released, finding that the accuracy is lower than that released by goverment, nevertheless GEE provives an automatic and rapid dectect the destructino of vegetation. Both analysis above utilize and introduce the use of GEE, which is considered as a quick and precise way for the researchers to process data, it is true indeed, when engaging with GEE platform, a lot of complitcated procedures and requirments are no longer needed, which means that we can have more time spending on the analysis itself.</p>
+</section>
+<section id="reflection" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="reflection"><span class="header-section-number">5.3</span> Reflection</h2>
+<p>This section I am gonna talk about the pros and cons about GEE from my perspective.</p>
+<ul>
+<li>Pros</li>
+</ul>
+<ol type="1">
+<li><p>In terms of data types, compared with other cloud platforms, GEE supports more types of geospatial data and provides free services to all users. It is currently the most popular cloud computing platform in earth system science and is widely used to deal with data in multiple fields related to environmental changes, moreover, GEE internally provides background computing and storage capabilities inherited from Google. This enables users to select the required data from millions of images according to various spatial and temporal specifications .In terms of data analysis, GEE has a more comprehensive functional scope, and it also has the ability to analyze geospatial big data.</p></li>
+<li><p>In terms of algorithms, GEE can be used to analyze the advanced algorithms and interactive programming environment of geographic big data. The machine learning algorithm in GEE allows convenient data processing and information extraction, and supports various image processing algorithms. In terms of API, although GEE’s API only include JavaScript and Python, it is enough to meet the needs of most users. GEE also holds long-term sequences of Earth observation records, which play a vital role in environmental monitoring and analysis.</p></li>
+</ol>
+<ul>
+<li>Cons</li>
+</ul>
+<p>GEE can only display global geospatial data in two dimensions, and lacks more advanced visualization capabilities, like 3D map. Also, GEE is a commercial product, and the security of personal, institutional, and national data remains an issue. Although GEE provides near real-time data, it is limited by its computing resources and supporting algorithms.</p>
+</section>
+<section id="reference" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="reference"><span class="header-section-number">5.4</span> Reference</h2>
+<p>Hongzhen Tian,Na Wei,Huan Li. Research progress at home and abroad based on Google Earth Engine[J]. Journal of Nanyang Normal University,2022,21(6):41-51. DOI:10.3969/j.issn.1671-6132.2022.06.008.</p>
+<p>JOHANSEN K, PHINN S, TAYLOR M, et al.&nbsp;Mapping woody vegetation clearing in Queensland, Australia from Landsatimagery using the Google Earth Engine[ J] . Remote Sensing Applications: Society and Environment,2015,1:36-49.</p>
+<p>LOBELL D B, THAU D, SEIFERT C. A scalable satellite-based crop yield mapper[ J] . Remote Sensing of Environment,2015,164:324-333.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -262,6 +352,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./wk6.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Classification I</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

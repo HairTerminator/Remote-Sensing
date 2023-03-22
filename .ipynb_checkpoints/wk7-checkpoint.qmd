@@ -1,0 +1,71 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.14.1
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+# Classification II
+
+## Summary
+
+This week's leture goes deeper in land cover classification and accuracy testing. For the former, object based image analysis is introduced, which involves considering shapes based on the similarity (homogeneity) or difference (heterogeneity) of the cells. Simple Linear Iterative Clustering(SLIC) Algorithm for Superpixel generation is the most common method, it will
+
+- use regular points on the image
+- work out spatial distance (from point to centre of pixel)
+- colour difference (RGB vs RGB to centre point)
+
+But for sub pixels, how to analyze them is another way playing around, and basically it means a pixel is composed of a range of land cover types.SMA(spectral mixure analysis) is another name of sub pixel, which determines the proportion or abundance of landcover per pixel.
+
+Then the second part covered is accuracy, and there are three parameters are considered in RS:
+
+- PA Producer accuracy (recall or true positive rate or sensitivity)
+- UA User’s accuracy (consumer’s accuracy or precision or positive predictive value
+- OA the (overall) accuracy
+
+To test the accuracy of the existing model, we also need to split the data into training dataset and test dataset, then cross validation can be used to calculate the accuracy of the model. Also, to avoid the impact of spatial autocorrelation, what we can do to help is as following:
+
+- Object based image analysis
+- Spatial cross validation
+
+We can apply these concept into practice on GEE platform:
+
+Spatial autocorrelation can be done in K-means in Daressalaam:
+
+![](wk72.jpg)
+
+we can see it basically generates big blocks, in regard of this, SLIC method mentioned above could be used, and result is like this:
+
+![](wk73.jpg)
+
+Combining the ndvi and standard deviation, we could classify the image and here is what I get:
+
+![](wk74.jpg)
+
+It can be seen the classifcation result is not that good, since there is not adequate samples for each type of land use. Anyway it's better than nothing！
+
+
+
+## Application
+
+Here I find a research closely related to this week's content.Aiming at the high degree of fragmentation of garlic planting in Kaifeng City and the difficulty of high-precision and rapid extraction of optical data,  Zhanlin Ma(2022)  chose to integrate the backscatter coefficient of Sentinel-1 satellite and Sentinel-2 satellite based on GEE, Random Forest, and object-oriented methods. The spectral, spectral index and texture features were applied to 10 m and 20 m spatial resolution sense data added to the vegetation red edge band,respectively, to explore the performance of different feature combinations to improve the recognition accuracy of garlic. The results showd that: when the segmentation scale of Simple Non-iterative Clustering (SNIC) is 5, Gray-level Co-occurrence Matrix(GLCM) The neighborhood value is 4, and the first and second principal components are selected for the 7 texture features, the overall classification accuracy and Kappa coefficient are the highest with the use of Sentinel active and passive remote sensing data with a spatial resolution of 10 m. The study provides technical reference for remote sensing data to identify large and small economic crops with the same or overlapping growth cycles. 
+
+The simple non-iterative clustering (SNIC) algorithm is improved based on the SLIC algorithm, which effectively improves the clustering efficiency, the study above used this method to classify and detect the distribution of garlic, whose featrue parameters are also considered into the algorithm. It tells us when using classifying method, there is a need to choose the proper and appropriate parameters in the model in different scenarios.
+
+
+
+
+## Reflection
+
+Compared with traditional image downloading, atmospheric correction, geometric correction, splicing, cropping and other manual processing processes that take several days, GEE significantly improves the efficiency of data calculation and analysis. I feel like this especially when I finish the practical part, which would usually take days to complete if we do it in other software and could clash any time when engaged with so much data. GEE-based analysis like classification that will involve huge calculation flow and big volume of data will become more and more popular for sure.
+
+## Reference
+
+Zhanlin Ma, Huazhu Xue, Changhua liu(2022). Identification of garlic based on active and passive remote sensing data and object-oriented technology[J]. Agriculture engineering,2022,38(2):210-222. DOI:10.11975/j.issn.1002-6819.2022.02.024.

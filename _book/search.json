@@ -96,5 +96,117 @@
     "title": "4  Policy",
     "section": "4.4 Reference",
     "text": "4.4 Reference\nJianwei Ma, Shifeng Huang, Zongnan Xu. Satellite remote sensing of lake area in Wuhan from 1973 to 2015. Journal of Hydraulic Engineering,2017,48(8):903-913. DOI:10.13243/j.cnki.slxb.20170097."
+  },
+  {
+    "objectID": "wk5.html",
+    "href": "wk5.html",
+    "title": "5  An introduction to Google Earth Engine",
+    "section": "",
+    "text": "This week basically GEE is introduced and here are what we need to know about GEE:\n\nWhat is GEE?\n\nThe full spell of GEE is Google Earth Engine, from my perspective, it’s an online geogrophic platform which involves various satellite image datasets, enabling people to do some real-time analysis based on Javascript coding language.\n\nImportant Features of GEE\n\n\nMassive datasets-including different kinds of data sources\nIt permits geospatial analysis at scale-meanning large scale analysis can be done through it\nRespond quickly-it uses its own online server rather than local server\nCode based platform-all we need to do for the analysis is coding on the scipt box\nJavascript Coding Language\nScale (resolution) is set by the output not input\nAutomatically convert data into the Mercator projection (EPSG: 3857) when displayed\n\nNow let’s go through some codes and see what’s happening, but before that, it is worthwhile having a look at the basic work page of GEE:\n\n\nPoints in GEE\n\nWe can use the following code to pin a point in the map:\nvar point = ee.Geometry.Point([77.216721, 28.644800]);\n\nThen rename this point with “Dheli” to make it more comprehensive\nMap.centerObject(Dheli, 10);\n\nLook how it like in GEE:\n\nA lot of cool stuffs can be done in GEE, like adding shp file into assets,mosaicing and clipping, etc. But I wouldn’t cover too much about them in this learning diary. Actually what relly impresses me is NDVI can be done in GEE just by using a few rows of codes:\nvar NDVI_1 = clip.select('SR_B5').subtract(clip.select('SR_B4')).divide(clip.select('SR_B5').add(clip.select('SR_B4')));\n\nMap.addLayer(NDVI_1, { min: -1, max: 1, palette: ['blue', 'white', 'green']}, 'NDVI1');\nI can get something like this:\n\nWhich is really awesome, since index value can be seen at the top right console box when I click the map and get a point."
+  },
+  {
+    "objectID": "wk5.html#application",
+    "href": "wk5.html#application",
+    "title": "5  An introduction to Google Earth Engine",
+    "section": "5.2 Application",
+    "text": "5.2 Application\nResearch topics in GEE are various, including land use change, agriculture, ecology and disaster detecting, etc. Here I choose two typical analysis to introduce.First one is crop yield prediction. Lobell(2015) estimated the yield of corn and soybean in middle west of US on GEE platform, he used lots of remote sensing images、weather data and types of crop image data, and the estimated results is consistent with the data that reported by farms. Sencond, Johansen(2015) uses GEE platform to adopot different algorithms to analyze images from Lansat 5TM and Landsat 7TM, and extracted the vegetation data of Queensland, with which he compared the data that states government released, finding that the accuracy is lower than that released by goverment, nevertheless GEE provives an automatic and rapid dectect the destructino of vegetation. Both analysis above utilize and introduce the use of GEE, which is considered as a quick and precise way for the researchers to process data, it is true indeed, when engaging with GEE platform, a lot of complitcated procedures and requirments are no longer needed, which means that we can have more time spending on the analysis itself."
+  },
+  {
+    "objectID": "wk5.html#reflection",
+    "href": "wk5.html#reflection",
+    "title": "5  An introduction to Google Earth Engine",
+    "section": "5.3 Reflection",
+    "text": "5.3 Reflection\nThis section I am gonna talk about the pros and cons about GEE from my perspective.\n\nPros\n\n\nIn terms of data types, compared with other cloud platforms, GEE supports more types of geospatial data and provides free services to all users. It is currently the most popular cloud computing platform in earth system science and is widely used to deal with data in multiple fields related to environmental changes, moreover, GEE internally provides background computing and storage capabilities inherited from Google. This enables users to select the required data from millions of images according to various spatial and temporal specifications .In terms of data analysis, GEE has a more comprehensive functional scope, and it also has the ability to analyze geospatial big data.\nIn terms of algorithms, GEE can be used to analyze the advanced algorithms and interactive programming environment of geographic big data. The machine learning algorithm in GEE allows convenient data processing and information extraction, and supports various image processing algorithms. In terms of API, although GEE’s API only include JavaScript and Python, it is enough to meet the needs of most users. GEE also holds long-term sequences of Earth observation records, which play a vital role in environmental monitoring and analysis.\n\n\nCons\n\nGEE can only display global geospatial data in two dimensions, and lacks more advanced visualization capabilities, like 3D map. Also, GEE is a commercial product, and the security of personal, institutional, and national data remains an issue. Although GEE provides near real-time data, it is limited by its computing resources and supporting algorithms."
+  },
+  {
+    "objectID": "wk5.html#reference",
+    "href": "wk5.html#reference",
+    "title": "5  An introduction to Google Earth Engine",
+    "section": "5.4 Reference",
+    "text": "5.4 Reference\nHongzhen Tian,Na Wei,Huan Li. Research progress at home and abroad based on Google Earth Engine[J]. Journal of Nanyang Normal University,2022,21(6):41-51. DOI:10.3969/j.issn.1671-6132.2022.06.008.\nJOHANSEN K, PHINN S, TAYLOR M, et al. Mapping woody vegetation clearing in Queensland, Australia from Landsatimagery using the Google Earth Engine[ J] . Remote Sensing Applications: Society and Environment,2015,1:36-49.\nLOBELL D B, THAU D, SEIFERT C. A scalable satellite-based crop yield mapper[ J] . Remote Sensing of Environment,2015,164:324-333."
+  },
+  {
+    "objectID": "wk6.html",
+    "href": "wk6.html",
+    "title": "6  Classification I",
+    "section": "",
+    "text": "This week’s leture is mainly about some application scenarios of classification and what kind of processes are used during the analysis.Basically, things couldbe done through classifying are as following:\n\nUrban expansion\n\nLandsat satellite image data could be used to dectect and see what’s changed during a centain period of time in a city, through which we can know what city morphology will be like.\n\nAir pollution and LULC(land use land cover)\n\nIt can be illustrated through charts that how the relationship between air pollution and LULC is and measures couble be implemented based on the results.\n\nMonitoring illegal logging\n\nA good example is in Brazil, local officers use these steps to find potentiao illegal logging areas:\n\nLandsat data for monitoring forest loss and illegal logging\nPre-processing, including(i) image resampling, (ii) conversion of raw digital values (DN) to top of atmosphere (TOA) reflectance, (iii) cloud/shadow/water screening and quality assessment (QA), and (iv) image normalization\nCreating metrics\nFeature space, which means deploying scattergram of two bands\nTraining data (in supervised machine learning),methods are like Random Forest, SVM or maxmum likelihood could be used in this step\nClassification (supervised or unsupervised),then generate the result.  Source:Hansen et al. 2013\n\nHow we deal with the remote sensing data in the classification? Gnerally speaking, there are two methods, supervised classification and unsupervised classification. Supervised classification is a classification method that requires learning and training. We need to select samples ourselves and learn before classifying; unsupervised classification does not require manual collection of ground object sample point data. Most of them are automatically classified by clustering methods, and we can classify while learning.Typical methods will be introduced in the following:\n\nUnsupervised classification\n\n\nk-means analysis\ncluster bustering with isodata\n\n\nSupervised classification\n\n\nmaximum likelihood\nsupport vector machines\n\nThere are lots of information online, so I am not gonna elaborate these methods in detail. Honestly speaking, although some concepts seem to be deep and abstact, when we use them all we need to do is click some buttons and set proper appropriate parameters in those RS processing software or platform.\nHere are CART results used to classfy the Shenzhen city \nthere are difficulties in doing this for sure, and the most impressive one is when I got the image after filtering clouds, clip function couldn’t be processed, and it showed “clip function is not defined”, after going through the practical introduction and checking some simliar quetions posted on geek website, I realized that when we clip, we basically refer to one image’s clipping, rather than a set of images. Therefore, I use mean function to get the mean image of Shenzhen, then it was easy to clip using the following code:\nvar meanImage = waytwo.mean();\n\nvar waytwo_clip = meanImage.clip(shenzhen)\n\nMap.addLayer(waytwo_clip, visualization, 'waytwoRGB_clip');\n\nHere is what I got:"
+  },
+  {
+    "objectID": "wk6.html#application",
+    "href": "wk6.html#application",
+    "title": "6  Classification I",
+    "section": "6.2 Application",
+    "text": "6.2 Application\nI found one article really interesting which is about forest fire historically evaluating.\nLijun Mao(2022) took the pilot area of Qianjiangyuan National Park and its surrounding 10km buffer zone as the research area, based on the GEE cloud platform, Landsat satellite images and satellite forest fire monitoring data, combined with visual interpretation and spectral index method to quickly extract the burned area, and counted The change law of fire occurrence time, frequency and burned area. He also used the landscape index to describe the spatial pattern of the burned area. The results show that: from 1999 to 2019, there were 19 forest fires in the study area, of which forest fires occurred frequently in spring and winter, respectively accounting for 47.37% and 42.11% of total; in 2013, the average coverage of a single forest fire was the widest (83.54 hm2), and in 2011 the number of forest fires occurred the most (6 times), and the area of the burned area was quite different, while in 2014 and 2019 Only one fire occurred each time; the total burned area in the study area was about 766.55 hm2, showing a trend of first increasing and then decreasing during the study period. The burned area in Qianjiangyuan National Park was only 9.05 hm2 (2011 and 2014 were respectively 9.04 hm2 and 0.01 hm2). This research method is suitable for quickly obtaining fire information at a resolution scale of 30 m with the help of free historical Landsat data, establishing spatially clear historical data files of disaster situations, and evaluating disaster management effectiveness of national parks in a timely and objective manner.\nBut I think there are two limitations.First, it lacks accurate and complete official historical fire records; moreover, due to the early age of most of the fires and the complex topography of the area, it is difficult to conduct field survey work."
+  },
+  {
+    "objectID": "wk6.html#reflection",
+    "href": "wk6.html#reflection",
+    "title": "6  Classification I",
+    "section": "6.3 Reflection",
+    "text": "6.3 Reflection\nThis week’s talk is mainly about GEE-based remote sensing image classification. For the GEE part, one difficulty is code understanding and debug, which are full of consistent trials. However, GEE really shows its power to me as an online platform. A wide range of topics and fields can be analyzed through it, more importantly, the data is all free and I don’t need to down it to the local repository, it is so effective to load data from cloud server and I could really use the saved time to figure out the codes."
+  },
+  {
+    "objectID": "wk6.html#reference",
+    "href": "wk6.html#reference",
+    "title": "6  Classification I",
+    "section": "6.4 Reference",
+    "text": "6.4 Reference\nLijun Mao,Xujian Mao,Xiaoming Xue. Research on Dynamic Changes of Forest Fires in Qianjiangyuan National Parks Based from GEE Platform[J]. Journal of Southwest Forestry University, 2022,42(9):158-164. DOI:10.11929/j.swfu.202108036."
+  },
+  {
+    "objectID": "wk7.html",
+    "href": "wk7.html",
+    "title": "7  Classification II",
+    "section": "",
+    "text": "This week’s leture goes deeper in land cover classification and accuracy testing. For the former, object based image analysis is introduced, which involves considering shapes based on the similarity (homogeneity) or difference (heterogeneity) of the cells. Simple Linear Iterative Clustering(SLIC) Algorithm for Superpixel generation is the most common method, it will\n\nuse regular points on the image\nwork out spatial distance (from point to centre of pixel)\ncolour difference (RGB vs RGB to centre point)\n\nBut for sub pixels, how to analyze them is another way playing around, and basically it means a pixel is composed of a range of land cover types.SMA(spectral mixure analysis) is another name of sub pixel, which determines the proportion or abundance of landcover per pixel.\nThen the second part covered is accuracy, and there are three parameters are considered in RS:\n\nPA Producer accuracy (recall or true positive rate or sensitivity)\nUA User’s accuracy (consumer’s accuracy or precision or positive predictive value\nOA the (overall) accuracy\n\nTo test the accuracy of the existing model, we also need to split the data into training dataset and test dataset, then cross validation can be used to calculate the accuracy of the model. Also, to avoid the impact of spatial autocorrelation, what we can do to help is as following:\n\nObject based image analysis\nSpatial cross validation\n\nWe can apply these concept into practice on GEE platform:\nSpatial autocorrelation can be done in K-means in Daressalaam:\n\nwe can see it basically generates big blocks, in regard of this, SLIC method mentioned above could be used, and result is like this:\n\nCombining the ndvi and standard deviation, we could classify the image and here is what I get:\n\nIt can be seen the classifcation result is not that good, since there is not adequate samples for each type of land use. Anyway it’s better than nothing！"
+  },
+  {
+    "objectID": "wk7.html#application",
+    "href": "wk7.html#application",
+    "title": "7  Classification II",
+    "section": "7.2 Application",
+    "text": "7.2 Application\nHere I find a research closely related to this week’s content.Aiming at the high degree of fragmentation of garlic planting in Kaifeng City and the difficulty of high-precision and rapid extraction of optical data, Zhanlin Ma(2022) chose to integrate the backscatter coefficient of Sentinel-1 satellite and Sentinel-2 satellite based on GEE, Random Forest, and object-oriented methods. The spectral, spectral index and texture features were applied to 10 m and 20 m spatial resolution sense data added to the vegetation red edge band,respectively, to explore the performance of different feature combinations to improve the recognition accuracy of garlic. The results showd that: when the segmentation scale of Simple Non-iterative Clustering (SNIC) is 5, Gray-level Co-occurrence Matrix(GLCM) The neighborhood value is 4, and the first and second principal components are selected for the 7 texture features, the overall classification accuracy and Kappa coefficient are the highest with the use of Sentinel active and passive remote sensing data with a spatial resolution of 10 m. The study provides technical reference for remote sensing data to identify large and small economic crops with the same or overlapping growth cycles.\nThe simple non-iterative clustering (SNIC) algorithm is improved based on the SLIC algorithm, which effectively improves the clustering efficiency, the study above used this method to classify and detect the distribution of garlic, whose featrue parameters are also considered into the algorithm. It tells us when using classifying method, there is a need to choose the proper and appropriate parameters in the model in different scenarios."
+  },
+  {
+    "objectID": "wk7.html#reflection",
+    "href": "wk7.html#reflection",
+    "title": "7  Classification II",
+    "section": "7.3 Reflection",
+    "text": "7.3 Reflection\nCompared with traditional image downloading, atmospheric correction, geometric correction, splicing, cropping and other manual processing processes that take several days, GEE significantly improves the efficiency of data calculation and analysis. I feel like this especially when I finish the practical part, which would usually take days to complete if we do it in other software and could clash any time when engaged with so much data. GEE-based analysis like classification that will involve huge calculation flow and big volume of data will become more and more popular for sure."
+  },
+  {
+    "objectID": "wk7.html#reference",
+    "href": "wk7.html#reference",
+    "title": "7  Classification II",
+    "section": "7.4 Reference",
+    "text": "7.4 Reference\nZhanlin Ma, Huazhu Xue, Changhua liu(2022). Identification of garlic based on active and passive remote sensing data and object-oriented technology[J]. Agriculture engineering,2022,38(2):210-222. DOI:10.11975/j.issn.1002-6819.2022.02.024."
+  },
+  {
+    "objectID": "wk8.html",
+    "href": "wk8.html",
+    "title": "8  Temperatrue",
+    "section": "",
+    "text": "This week mainly focus on temperature and policy, and urban heat island(UHI) issue is posed at the very beginning, whose definition is certain spots in a city are much more hotter with higher temperature than the surrounding environment due to a series of complex human activites, like carbon dioxide emission, polution, factory operation, etc. Two main direct causes of UHI coule be:\n\nMore dark surfaces that retain heat\nLess vegetation that cools the environment\n\nUHI hurt human being in three aspects:\n\nSocial damage\nEnvironmental damage\nEconomic damage\n\nFortunately, global policies targeting at addressing the UHI issue has been proposed, it is covered from “New Urban Agenda” to “SDGs”. However, local policies also are needed to be made to response this issue from realistic and practical level, here are some examples:\n\nBarcelona Superblocks\nMedellín Green Corridors\nSydney’s western suburbs\n\nWe already know it’s an serious issue we can’t neglect, then what exactly do we set up every step? More specifically, what can city do based on the data they have? Take Fremantle for example, they use Landsat temperature image data(they believe) from one day in a month, with a 30m resolution, here is what this city would like to achieve:\n\nMaintain and enhance vegetation\nIncrease quantity and distribution of green areas/tress (20% canopy coverage)\nEncourage greening of hard surfaces (e.g. parking) and in private realm\nFirst city to use data to inform their cooling / greening strategy\n\nWith all the data and policies, it seems that this issue could be adressed easily, however, during the procesure, there are usually full of misconducts, which are mainly related to inequality, like do we take measures equally and equitably?\nFor the practical, we can apply Landsat data to plot a mean summer temperature image, take Beijing for example:\n\nThis can also be done using Modis satellite products:\n\nWe can see the difference bewteen these two plots is the latter is more vague not as clear as the first plot, this is because the resolution modis have is 30m scale while the Landsat has 10m scales. But Modis have more images in a certain period of time, which provide us with the chance to do a time-series analysis.\n\nThis enables us to do more mathmatical calculations since we have this two dimension expression of data."
+  },
+  {
+    "objectID": "wk8.html#application",
+    "href": "wk8.html#application",
+    "title": "8  Temperatrue",
+    "section": "8.2 Application",
+    "text": "8.2 Application\nTaking the main urban area of Guilin city as the research area, Peiqing Jiang(2020) used the random forest algorithm to classify the Landsat remote sensing images in 2010, 2014 and 2018 based on GEE, and used the single-window algorithm to invert the surface temperature. The results showed that: 2010—2018 The average temperature in the main urban area of Guilin City showed an upward trend in 2010, with a total increase of 1.29 ℃ in 8 years, and the temperature zones of each level changed from lower temperature zone, low temperature zone and medium temperature zone to high temperature zone and higher temperature zone; lower temperature zone and low temperature zone is mainly distributed in areas covered by vegetation and water bodies, while the medium temperature area, high-temperature area, and higher temperature area are mainly distributed in construction land and unused land-covered areas. The following figure is the LST results from three different year:\n\nSource:Wanfang\nActually I have one doubt about this article which is the colleting time of the image data, if collected in different time, data analysis is not convincing to readers and the public. If it needs to calculate the mean temperatrue of the whole year, it has to be mentioned, which I don’t see in this article. Maybe it can be more clear about when the data is collected and specify the time they use for analyzing."
+  },
+  {
+    "objectID": "wk8.html#reflection",
+    "href": "wk8.html#reflection",
+    "title": "8  Temperatrue",
+    "section": "8.3 Reflection",
+    "text": "8.3 Reflection\nUsing GEE, we can quickly find the temperature product from different satellite sources, like Landsat or Modis. Despite they may have different resolution, it still gives us the oppotunity to analyze issues under the various situations the city are facing. Sadly, there is no satallite that can produces consistent temperature products with precise resolution so far, the best satellite now is Sentinel-5P, which still can’t meet the needs of deeper temporal analysis. However, what’s good is algorithms can be easily conduct through a rows of codes and it won’t cost us too much time, which is really fascinating."
+  },
+  {
+    "objectID": "wk8.html#reference",
+    "href": "wk8.html#reference",
+    "title": "8  Temperatrue",
+    "section": "8.4 Reference",
+    "text": "8.4 Reference\nPeiqing Lou, Bolin Fu, Hongchang He et al(2020). Quantitative remote sensing analysis of thermal environment changes in the main urban area of Guilin based on GEE[J]. Journal of Guilin University of Technology,2020,40(2):330-337. DOI:10.3969/j.issn.1674-9057.2020.02.010."
   }
 ]
